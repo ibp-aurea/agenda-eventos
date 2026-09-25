@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Agenda de Eventos Aurea</title>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex, nofollow"><style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>Agenda de Eventos Aurea</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&display=swap">
@@ -114,6 +107,11 @@ h2{font-family:var(--display);font-size:22px;margin:0;letter-spacing:-.01em;font
 .sub{font-size:12.5px;color:var(--ink-2);margin-top:3px;font-weight:600}
 .sub.urgent{color:var(--urgent)}
 td .deadline{display:inline-block;white-space:nowrap}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:4px}
+.st.go{background:#E4F2E9;color:#1B6B3A}
+.st.no{background:#EAE5D8;color:#4A4540}
+.ev.dropped{opacity:.62}
+tr.dropped td{opacity:.62}
 
 /* others table */
 .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:var(--shadow-low)}
@@ -147,10 +145,7 @@ footer{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padd
 .lang button{font:inherit;font-size:13px;font-weight:600;border:0;background:transparent;color:var(--ink-2);padding:5px 12px;border-radius:6px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--action);color:#F4F0E8}
 </style>
-
-</head>
-<body>
-<div class="wrap">
+</head><body><div class="wrap">
   <header>
     <div class="topbar">
       <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 708.66 226.77" role="img" aria-label="Aurea">
@@ -202,9 +197,17 @@ footer{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padd
 </div>
 
 <script>
-/* ===== DADOS (atualizados pelo monitoramento semanal) ===== */
-const UPDATED="2026-09-24";
+/* ===== DADOS (atualizados pelo monitoramento semanal) =====
+   status opcional por evento: {go:true, who:"Nome"} = alguém vai · {go:false} = não vai ninguém */
+const UPDATED="2026-09-25";
 const EVENTS=[
+ {name:"LAVCA Week 2026",org:"LAVCA",start:"2026-10-19",end:"2026-10-21",
+  local:{pt:"Nova York (EUA)",en:"New York (USA)"},
+  price:{pt:"Valor não divulgado · público curado",en:"Price not disclosed · curated audience"},temas:["f"],areas:["CEO","Revenue"],
+  desc:{pt:"Principal encontro global de private equity e venture capital voltado para a América Latina.",en:"The leading global private equity and venture capital gathering focused on Latin America."},
+  publico:{pt:"Gestores de PE e VC, LPs e investidores institucionais.",en:"PE and VC managers, LPs and institutional investors."},
+  url:"https://www.lavca.org/programs/lavca-week-2026/",site:"https://www.lavca.org/",
+  note:{pt:"Evento em Nova York, com temas de interesse também para precatórios.",en:"Held in New York, with topics also relevant to court-ordered debt (precatórios)."}},
  {name:"3º ATIVOS – Financial Markets & Insolvency",org:"IBAJUD",start:"2026-10-27",end:"2026-10-27",
   local:{pt:"MASP, Av. Paulista 1578 · São Paulo",en:"MASP, Av. Paulista 1578 · São Paulo"},
   price:{pt:"Gratuito",en:"Free"},temas:["p"],areas:["Asset","CEO"],
@@ -296,7 +299,7 @@ const I18N={
   day:"dia",days:"dias",today:"HOJE",openReg:"Abrir inscrição",reg:"Inscrição",site:"Site do evento",left:n=>n<=0?"encerra hoje":`faltam ${n} ${n===1?"dia":"dias"}`,inDays:n=>`em ${n} ${n===1?"dia":"dias"}`,
   all:"Todos",filterLabel:"Filtrar por tema",count:n=>`${n} ${n===1?"evento":"eventos"}`,
   what:"O que é",who:"Quem vai",sug:"Sugestão de participação",senior:"lideranças / nível sênior",fDate:"Data",fPlace:"Local",fReg:"Inscrição",
-  noDl:"Nenhum prazo de inscrição nas próximas semanas.",noEv:"Nenhum evento deste tema em tempo hábil.",noOt:"Nenhum outro evento em tempo hábil.",lastTag:(n,open)=>n<=0?(open?"Ainda dá tempo · hoje":"Última chance · hoje"):"Última chance",regOpenUntil:"Inscrições abertas até",regUntil:"Inscrições até",regLeft:n=>n<=0?"encerram hoje":n===1?"falta 1 dia":`faltam ${n} dias`,base:"EVENTO-BASE",earlyUntil:"Early bird até",
+  noDl:"Nenhum prazo de inscrição nas próximas semanas.",noEv:"Nenhum evento deste tema em tempo hábil.",noOt:"Nenhum outro evento em tempo hábil.",stGo:w=>`Confirmado: ${w}`,stNo:"Não vai ninguém",lastTag:(n,open)=>n<=0?(open?"Ainda dá tempo · hoje":"Última chance · hoje"):"Última chance",regOpenUntil:"Inscrições abertas até",regUntil:"Inscrições até",regLeft:n=>n<=0?"encerram hoje":n===1?"falta 1 dia":`faltam ${n} dias`,base:"EVENTO-BASE",earlyUntil:"Early bird até",
   months:["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"],mon:["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"],
   temas:{p:"Precatórios, crédito e insolvência",i:"IA",f:"Fintech, mercado e VC",l:"Legaltech e jurídico",n:"Inovação e startups"},
   areas:{"Asset":"Asset","CEO":"CEO","Tech":"Tech","Dados":"Dados","Revenue":"Revenue","Operações":"Operações","Administrativo/Financeiro":"Administrativo/Financeiro"},
@@ -313,7 +316,7 @@ const I18N={
   day:"day",days:"days",today:"TODAY",openReg:"Open registration",reg:"Register",site:"Event website",left:n=>n<=0?"ends today":`${n} ${n===1?"day":"days"} left`,inDays:n=>`in ${n} ${n===1?"day":"days"}`,
   all:"All",filterLabel:"Filter by theme",count:n=>`${n} ${n===1?"event":"events"}`,
   what:"What it is",who:"Who attends",sug:"Suggested participation",senior:"leadership / senior level",fDate:"Date",fPlace:"Location",fReg:"Registration",
-  noDl:"No registration deadlines in the coming weeks.",noEv:"No events in this theme still in time.",noOt:"No other events still in time.",lastTag:(n,open)=>n<=0?(open?"Still in time · today":"Last chance · today"):"Last chance",regOpenUntil:"Registration open until",regUntil:"Registration until",regLeft:n=>n<=0?"closes today":n===1?"1 day left":`${n} days left`,base:"BENCHMARK EVENT",earlyUntil:"Early bird until",
+  noDl:"No registration deadlines in the coming weeks.",noEv:"No events in this theme still in time.",noOt:"No other events still in time.",stGo:w=>`Confirmed: ${w}`,stNo:"No one attending",lastTag:(n,open)=>n<=0?(open?"Still in time · today":"Last chance · today"):"Last chance",regOpenUntil:"Registration open until",regUntil:"Registration until",regLeft:n=>n<=0?"closes today":n===1?"1 day left":`${n} days left`,base:"BENCHMARK EVENT",earlyUntil:"Early bird until",
   months:["January","February","March","April","May","June","July","August","September","October","November","December"],mon:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
   temas:{p:"Precatórios, credit & insolvency",i:"AI",f:"Fintech, markets & VC",l:"Legaltech & legal",n:"Innovation & startups"},
   areas:{"Asset":"Asset","CEO":"CEO","Tech":"Tech","Dados":"Data","Revenue":"Revenue","Operações":"Operations","Administrativo/Financeiro":"Admin/Finance"},
@@ -362,10 +365,11 @@ function card(e){
   const n=days(e.start);
   const dl=e.deadline&&(!e.deadline.date||days(e.deadline.date)>=0)?`<span class="deadline${e.deadline.date&&days(e.deadline.date)<=7?" urgent":""}">${esc(T(e.deadline.label))}${e.deadline.date?" · "+L().left(days(e.deadline.date)):""}</span>`:"";
   const S=d(e.start),E=d(e.end);
-  return `<article class="ev">
+  const stHtml=e.status?`<span class="st ${e.status.go?"go":"no"}">${e.status.go?esc(L().stGo(e.status.who)):L().stNo}</span>`:"";
+  return `<article class="ev${e.status&&!e.status.go?" dropped":""}">
    <div class="date"><span class="d">${p2(S.getDate())}${e.end!==e.start?"<small style='font-size:15px'>–"+p2(E.getDate())+"</small>":""}</span><span class="m">${L().mon[S.getMonth()]} ${S.getFullYear()}</span><span class="left">${L().inDays(n)}</span></div>
    <div class="body">
-    <div class="top"><h4>${esc(e.name)}</h4><div class="tags">${e.temas.map(tag).join("")}</div></div>
+    <div class="top"><h4>${esc(e.name)}</h4><div class="tags">${e.temas.map(tag).join("")}</div></div>${stHtml?`<div>${stHtml}</div>`:""}
     <dl class="facts">
       <div><dt>${L().fDate}</dt><dd>${range(e.start,e.end)}</dd></div>
       <div><dt>${L().fPlace}</dt><dd>${esc(T(e.local))}</dd></div>
@@ -413,7 +417,7 @@ function render(){
   fBox.innerHTML=`<button class="chipbtn" id="f-all" aria-pressed="${active==="all"}" data-t="all">${L().all}</button>`+["p","i","f","l","n"].filter(k=>used.includes(k)).map(k=>`<button class="chipbtn" id="f-${k}" aria-pressed="${active===k}" data-t="${k}"><span class="dot" style="background:${DOT[k]}"></span>${esc(L().temas[k])}</button>`).join("");
   renderEvents();
 
-  document.getElementById("others").innerHTML=liveOthers.length?liveOthers.map(e=>`<tr><td class="num">${range(e.start,e.end)}${closeDate(e)?`<div class="sub${days(closeDate(e))<=7?" urgent":""}">${L().regUntil} ${fmtD(d(closeDate(e)))} (${L().regLeft(days(closeDate(e)))})</div>`:""}</td><td><a href="${e.url}" target="_blank" rel="noopener"><b>${esc(e.name)}</b></a>${(e.last||lastDay(e)<=0)?`<div style="margin-top:4px"><span class="deadline urgent">${L().lastTag(lastDay(e),!closeDate(e))}</span></div>`:""}</td><td>${esc(T(e.local))}</td><td>${esc(T(e.price))}</td><td><div class="tags">${e.temas.map(tag).join("")}</div></td><td>${e.areas.map(areaName).map(esc).join(" "+L().and+" ")}</td></tr>`).join(""):`<tr><td colspan="6">${L().noOt}</td></tr>`;
+  document.getElementById("others").innerHTML=liveOthers.length?liveOthers.map(e=>`<tr${e.status&&!e.status.go?' class="dropped"':""}><td class="num">${range(e.start,e.end)}${closeDate(e)?`<div class="sub${days(closeDate(e))<=7?" urgent":""}">${L().regUntil} ${fmtD(d(closeDate(e)))} (${L().regLeft(days(closeDate(e)))})</div>`:""}</td><td><a href="${e.url}" target="_blank" rel="noopener"><b>${esc(e.name)}</b></a>${e.status?`<div style="margin-top:4px"><span class="st ${e.status.go?"go":"no"}">${e.status.go?esc(L().stGo(e.status.who)):L().stNo}</span></div>`:""}${(e.last||lastDay(e)<=0)?`<div style="margin-top:4px"><span class="deadline urgent">${L().lastTag(lastDay(e),!closeDate(e))}</span></div>`:""}</td><td>${esc(T(e.local))}</td><td>${esc(T(e.price))}</td><td><div class="tags">${e.temas.map(tag).join("")}</div></td><td>${e.areas.map(areaName).map(esc).join(" "+L().and+" ")}</td></tr>`).join(""):`<tr><td colspan="6">${L().noOt}</td></tr>`;
 
   document.getElementById("soon").innerHTML=SOON.map(s=>`<div class="s">${s.base?`<span class="base" style="align-self:flex-start">${L().base}</span>`:""}<b>${esc(s.name)}</b><div class="tags">${s.temas.map(tag).join("")}</div><span><b style="font-size:13px">${esc(T(s.when))}</b> · ${esc(T(s.info))}</span></div>`).join("");
 }
@@ -422,6 +426,4 @@ document.getElementById("filters").addEventListener("click",ev=>{const b=ev.targ
 document.querySelector(".lang").addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;lang=b.dataset.lang;try{localStorage.setItem("aurea-ev-lang",lang)}catch(e){}render();});
 render();
 </script>
-
-</body>
-</html>
+</body></html>
