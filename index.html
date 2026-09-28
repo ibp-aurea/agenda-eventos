@@ -199,15 +199,8 @@ footer{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padd
 <script>
 /* ===== DADOS (atualizados pelo monitoramento semanal) =====
    status opcional por evento: {go:true, who:"Nome"} = alguém vai · {go:false} = não vai ninguém */
-const UPDATED="2026-09-25";
+const UPDATED="2026-09-28";
 const EVENTS=[
- {name:"LAVCA Week 2026",org:"LAVCA",start:"2026-10-19",end:"2026-10-21",
-  local:{pt:"Nova York (EUA)",en:"New York (USA)"},
-  price:{pt:"Valor não divulgado · público curado",en:"Price not disclosed · curated audience"},temas:["f"],areas:["CEO","Revenue"],
-  desc:{pt:"Principal encontro global de private equity e venture capital voltado para a América Latina.",en:"The leading global private equity and venture capital gathering focused on Latin America."},
-  publico:{pt:"Gestores de PE e VC, LPs e investidores institucionais.",en:"PE and VC managers, LPs and institutional investors."},
-  url:"https://www.lavca.org/programs/lavca-week-2026/",site:"https://www.lavca.org/",
-  note:{pt:"Evento em Nova York, com temas de interesse também para precatórios.",en:"Held in New York, with topics also relevant to court-ordered debt (precatórios)."}},
  {name:"3º ATIVOS – Financial Markets & Insolvency",org:"IBAJUD",start:"2026-10-27",end:"2026-10-27",
   local:{pt:"MASP, Av. Paulista 1578 · São Paulo",en:"MASP, Av. Paulista 1578 · São Paulo"},
   price:{pt:"Gratuito",en:"Free"},temas:["p"],areas:["Asset","CEO"],
@@ -228,7 +221,7 @@ const EVENTS=[
   price:{pt:"De R$ 1.997 a R$ 3.997 + taxa (PF, PJ, empresa pública)",en:"From R$ 1,997 to R$ 3,997 + fee (individual, company, public entity)"},temas:["i","f"],areas:["Dados","Revenue"],
   desc:{pt:"Etapa do circuito AI Summit Brasil dedicada a IA no mercado financeiro: produtividade, rentabilidade, governança de dados e casos reais.",en:"AI Summit Brasil edition dedicated to AI in financial markets: productivity, profitability, data governance and real cases."},
   publico:{pt:"Bancos, fintechs, assets, family offices, empresas de crédito e reguladores; C-level e fundadores.",en:"Banks, fintechs, asset managers, family offices, lenders and regulators; C-level and founders."},
-  deadline:{date:"2026-10-03",label:{pt:"Lote atual até 03/10",en:"Current tier until Oct 3"}},
+  deadline:{date:"2026-10-10",label:{pt:"Lote 1 até 10/10",en:"Tier 1 until Oct 10"}},
   url:"https://www.sympla.com.br/ai-summit-money__3565725",site:"https://aisummit.ia.br/",
   note:{pt:"Acontece nos mesmos dias do AI Brasil Experience.",en:"Same dates as AI Brasil Experience."}},
  {name:"AI Brasil Experience 2026",org:"AI Brasil",start:"2026-10-28",end:"2026-10-29",
@@ -244,7 +237,7 @@ const EVENTS=[
   desc:{pt:"Inovação no mercado financeiro. Tema de 2026: agentes de IA e orquestração em bancos e fintechs.",en:"Innovation in financial services. 2026 theme: AI agents and orchestration in banks and fintechs."},
   publico:{pt:"Bancos, fintechs e empresas de tecnologia financeira (cerca de 2.500 pessoas).",en:"Banks, fintechs and financial technology companies (about 2,500 people)."},
   deadline:{date:"2026-10-31",label:{pt:"Lote 3 até 31/10",en:"Tier 3 until Oct 31"}},
-  url:"https://app.cmseventos.com/evento/fi-brasil/",site:"https://app.cmseventos.com/evento/fi-brasil/"},
+  url:"https://www.cmspeople.com.br/fi",site:"https://www.cmspeople.com.br/fi"},
  {name:"GITEX AI LATAM 2027",org:"inD / DWTC · Prefeitura de SP",start:"2027-03-16",end:"2027-03-17",
   local:{pt:"Anhembi · São Paulo",en:"Anhembi · São Paulo"},
   price:{pt:"Credenciamento de visitante e programa de investidores (sob consulta)",en:"Visitor registration and investor program (on request)"},temas:["i","n"],areas:["CEO","Tech"],
@@ -269,6 +262,7 @@ const EVENTS=[
   note:{pt:"É o evento principal para a tese de legal fintech.",en:"The key event for the legal fintech thesis."}}
 ];
 const OTHERS=[
+ {start:"2026-10-06",end:"2026-10-08",name:"ExpoJud 2026",url:"https://expojud.com/",local:"CICB, Brasília",price:{pt:"De R$ 10.500 a R$ 34.500 · gratuito p/ setor público",en:"From R$ 10,500 to R$ 34,500 · free for public sector"},temas:["l","i"],areas:["Asset","Tech"]},
  {start:"2026-10-06",end:"2026-10-08",name:"Futurecom 2026",url:"https://www.futurecom.com.br/",local:"São Paulo Expo",price:{pt:"De R$ 379 a R$ 11.300",en:"From R$ 379 to R$ 11,300"},temas:["i"],areas:["Tech","Dados"]},
  {start:"2026-11-02",end:"2026-11-02",name:"REACT Brasil (special situations)",url:"https://reactbrasil.com.br/",local:"Tivoli Mofarrej, SP",price:{pt:"Por aplicação",en:"By application"},temas:["p"],areas:["Asset","CEO"]},
  {start:"2026-11-03",end:"2026-11-04",name:"18º Congresso TMA Brasil",url:"https://18-congresso.tmabrasil.org/",local:"Grand Hyatt, SP",price:{pt:"Sob consulta",en:"On request"},temas:["p"],areas:["Asset","CEO"]},
@@ -426,4 +420,5 @@ document.getElementById("filters").addEventListener("click",ev=>{const b=ev.targ
 document.querySelector(".lang").addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;lang=b.dataset.lang;try{localStorage.setItem("aurea-ev-lang",lang)}catch(e){}render();});
 render();
 </script>
+
 </body></html>
