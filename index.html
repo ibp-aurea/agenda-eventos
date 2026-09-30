@@ -199,8 +199,15 @@ footer{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padd
 <script>
 /* ===== DADOS (atualizados pelo monitoramento semanal) =====
    status opcional por evento: {go:true, who:"Nome"} = alguém vai · {go:false} = não vai ninguém */
-const UPDATED="2026-09-28";
+const UPDATED="2026-09-30";
 const EVENTS=[
+ {name:"LAVCA Week 2026",org:"LAVCA",start:"2026-10-19",end:"2026-10-21",
+  local:{pt:"Nova York (EUA)",en:"New York (USA)"},
+  price:{pt:"Valor não divulgado · público curado",en:"Price not disclosed · curated audience"},temas:["f"],areas:["CEO","Revenue"],
+  desc:{pt:"Principal encontro global de private equity e venture capital voltado para a América Latina.",en:"The leading global private equity and venture capital gathering focused on Latin America."},
+  publico:{pt:"Gestores de PE e VC, LPs e investidores institucionais.",en:"PE and VC managers, LPs and institutional investors."},
+  url:"https://www.lavca.org/programs/lavca-week-2026/",site:"https://www.lavca.org/",
+  note:{pt:"Evento em Nova York, com temas de interesse também para precatórios.",en:"Held in New York, with topics also relevant to court-ordered debt (precatórios)."}},
  {name:"3º ATIVOS – Financial Markets & Insolvency",org:"IBAJUD",start:"2026-10-27",end:"2026-10-27",
   local:{pt:"MASP, Av. Paulista 1578 · São Paulo",en:"MASP, Av. Paulista 1578 · São Paulo"},
   price:{pt:"Gratuito",en:"Free"},temas:["p"],areas:["Asset","CEO"],
@@ -222,7 +229,7 @@ const EVENTS=[
   desc:{pt:"Etapa do circuito AI Summit Brasil dedicada a IA no mercado financeiro: produtividade, rentabilidade, governança de dados e casos reais.",en:"AI Summit Brasil edition dedicated to AI in financial markets: productivity, profitability, data governance and real cases."},
   publico:{pt:"Bancos, fintechs, assets, family offices, empresas de crédito e reguladores; C-level e fundadores.",en:"Banks, fintechs, asset managers, family offices, lenders and regulators; C-level and founders."},
   deadline:{date:"2026-10-10",label:{pt:"Lote 1 até 10/10",en:"Tier 1 until Oct 10"}},
-  url:"https://www.sympla.com.br/ai-summit-money__3565725",site:"https://aisummit.ia.br/",
+  status:{go:false},url:"https://www.sympla.com.br/ai-summit-money__3565725",site:"https://aisummit.ia.br/",
   note:{pt:"Acontece nos mesmos dias do AI Brasil Experience.",en:"Same dates as AI Brasil Experience."}},
  {name:"AI Brasil Experience 2026",org:"AI Brasil",start:"2026-10-28",end:"2026-10-29",
   local:{pt:"Distrito Anhembi · São Paulo",en:"Distrito Anhembi · São Paulo"},
@@ -357,7 +364,7 @@ if(active!=="all"&&!used.includes(active))active="all";
 
 function card(e){
   const n=days(e.start);
-  const dl=e.deadline&&(!e.deadline.date||days(e.deadline.date)>=0)?`<span class="deadline${e.deadline.date&&days(e.deadline.date)<=7?" urgent":""}">${esc(T(e.deadline.label))}${e.deadline.date?" · "+L().left(days(e.deadline.date)):""}</span>`:"";
+  const dl=!(e.status&&!e.status.go)&&e.deadline&&(!e.deadline.date||days(e.deadline.date)>=0)?`<span class="deadline${e.deadline.date&&days(e.deadline.date)<=7?" urgent":""}">${esc(T(e.deadline.label))}${e.deadline.date?" · "+L().left(days(e.deadline.date)):""}</span>`:"";
   const S=d(e.start),E=d(e.end);
   const stHtml=e.status?`<span class="st ${e.status.go?"go":"no"}">${e.status.go?esc(L().stGo(e.status.who)):L().stNo}</span>`:"";
   return `<article class="ev${e.status&&!e.status.go?" dropped":""}">
@@ -394,8 +401,8 @@ function render(){
   document.getElementById("updated").textContent=fmtFull(d(UPDATED));
   document.getElementById("cutoff").textContent=fmtFull(cutoff);
 
-  const dls=[...live.filter(e=>e.deadline&&e.deadline.date).map(e=>({date:e.deadline.date,label:T(e.deadline.label),name:e.name,url:e.url})),
-    ...liveOthers.filter(e=>e.deadline).map(e=>typeof e.deadline==="object"?(e.deadline.date?{date:e.deadline.date,label:T(e.deadline.label),name:e.name,url:e.url}:null):{date:e.deadline,label:L().earlyUntil+" "+fmtD(d(e.deadline)),name:e.name,url:e.url}).filter(Boolean)]
+  const dls=[...live.filter(e=>e.deadline&&e.deadline.date&&!(e.status&&!e.status.go)).map(e=>({date:e.deadline.date,label:T(e.deadline.label),name:e.name,url:e.url})),
+    ...liveOthers.filter(e=>e.deadline&&!(e.status&&!e.status.go)).map(e=>typeof e.deadline==="object"?(e.deadline.date?{date:e.deadline.date,label:T(e.deadline.label),name:e.name,url:e.url}:null):{date:e.deadline,label:L().earlyUntil+" "+fmtD(d(e.deadline)),name:e.name,url:e.url}).filter(Boolean)]
     .filter(x=>days(x.date)>=0).sort((a,b)=>d(a.date)-d(b.date));
   document.getElementById("deadlines").innerHTML=dls.length?dls.map(x=>{const n=days(x.date);return `<div class="dl${n<=7?" urgent":""}"><div class="cd">${n===0?`<b style="font-size:17px">${L().today}</b>`:`<b>${n}</b><span>${n===1?L().day:L().days}</span>`}</div><div class="what">${esc(x.name)}</div><div class="when">${esc(x.label)}</div><a class="go" href="${x.url}" target="_blank" rel="noopener">${L().openReg} ${EXT}</a></div>`}).join(""):`<div class="empty">${L().noDl}</div>`;
 
@@ -419,6 +426,4 @@ function render(){
 document.getElementById("filters").addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;active=b.dataset.t;document.querySelectorAll("#filters button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderEvents();try{localStorage.setItem("aurea-ev-filter",active)}catch(e){}});
 document.querySelector(".lang").addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;lang=b.dataset.lang;try{localStorage.setItem("aurea-ev-lang",lang)}catch(e){}render();});
 render();
-</script>
-
-</body></html>
+</script></body></html>
