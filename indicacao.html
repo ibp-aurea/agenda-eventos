@@ -38,13 +38,11 @@ p{margin:0;color:rgba(11,26,15,.7);font-size:15px;line-height:1.5}
 <h1>Indicação para eventos</h1>
 <p>Para abrir o formulário, entre com o seu e-mail da Aurea (@raurea.com).</p>
 <a class="btn" id="entrar" href="#">Entrar com a conta da Aurea</a>
-<a class="alt" id="direto" href="#">Já estou com a conta da Aurea, abrir direto</a>
-<p class="tip">No celular, se o link abriu dentro do WhatsApp, toque nos três pontinhos e escolha "Abrir no navegador" (Chrome ou Safari). Se aparecer outra conta, escolha "Usar outra conta" e entre com o e-mail @raurea.com.</p>
+<p class="tip">No celular, se o link abriu dentro do WhatsApp, toque nos três pontinhos e escolha "Abrir no navegador" (Chrome ou Safari). Na tela do Google, escolha a sua conta @raurea.com ou toque em "Usar outra conta" para entrar com ela.</p>
 </main>
 <script>
   var SISTEMA = "https://script.google.com/a/macros/raurea.com/s/AKfycbz46_0W3PI17lDR6X59Edu4_8n71lUiDF1E75GShGZIwxPFyPLwLJTkOujdHnuinuR6/exec";
   var destino = SISTEMA + location.search;
-  document.getElementById("direto").href = destino;
   document.getElementById("entrar").href = "https://accounts.google.com/AccountChooser?continue=" + encodeURIComponent(destino) + "&hd=raurea.com";
 </script>
 </body>
