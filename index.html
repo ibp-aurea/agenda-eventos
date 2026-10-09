@@ -184,7 +184,7 @@ footer{font-size:13px;color:var(--ink-2);border-top:1px solid var(--line);paddin
 <script>
 /* ===== DADOS (atualizados pelo monitoramento semanal) =====
    status opcional por evento: {go:true, who:"Nome"} = alguém vai · {go:false} = não vai ninguém */
-const UPDATED="2026-10-05";
+const UPDATED="2026-10-09";
 const EVENTS=[
  {name:"LAVCA Week 2026",org:"LAVCA",start:"2026-10-19",end:"2026-10-21",
   local:{pt:"Nova York (EUA)",en:"New York (USA)"},
@@ -257,11 +257,18 @@ const OTHERS=[
  {start:"2026-10-06",end:"2026-10-08",name:"ExpoJud 2026",url:"https://expojud.com/",local:"CICB, Brasília",price:{pt:"De R$ 10.500 a R$ 34.500 · gratuito p/ setor público",en:"From R$ 10,500 to R$ 34,500 · free for public sector"},temas:["l","i"],areas:["Asset","Tech"]},
  {start:"2026-10-06",end:"2026-10-08",name:"Futurecom 2026",url:"https://www.futurecom.com.br/",local:"São Paulo Expo",price:{pt:"De R$ 379 a R$ 11.300",en:"From R$ 379 to R$ 11,300"},temas:["i"],areas:["Tech","Dados"]},
  {start:"2026-10-08",end:"2026-10-08",name:"MIT-ANPEI Brazil Summit 2026",url:"https://mit-anpei-summit.com.br/",local:"Hotel Unique, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["n","i"],areas:["CEO","Tech"]},
+ {start:"2026-10-29",end:"2026-10-29",name:"Score Summit 2026",url:"https://www.scoresummit.com.br/",local:"Teatro Renaissance, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["f"],areas:["Dados","Asset"]},
  {start:"2026-11-02",end:"2026-11-02",name:"REACT Brasil (special situations)",url:"https://reactbrasil.com.br/",local:"Tivoli Mofarrej, SP",price:{pt:"Por aplicação",en:"By application"},temas:["p"],areas:["Asset","CEO"]},
  {start:"2026-11-03",end:"2026-11-04",name:"18º Congresso TMA Brasil",url:"https://18-congresso.tmabrasil.org/",local:"Grand Hyatt, SP",price:{pt:"Sob consulta",en:"On request"},temas:["p"],areas:["Asset","CEO"]},
  {start:"2026-11-04",end:"2026-11-05",name:"HSM+ 2026",url:"https://hsmmais.com.br/",local:"Distrito Anhembi, SP",price:{pt:"R$ 7.900",en:"R$ 7,900"},temas:["n"],areas:["CEO","Operações"]},
+ {start:"2026-11-09",end:"2026-11-12",name:"52º Congresso Nacional dos Procuradores dos Estados (ANAPE)",url:"https://anape.org.br/eventos/congressos/cnpe-26",local:"Hotel Pestana, Curitiba",price:{pt:"De R$ 2.100 a R$ 2.880",en:"From R$ 2,100 to R$ 2,880"},temas:["l"],areas:["Asset","CEO"]},
  {start:"2026-11-09",end:"2026-11-12",name:"Web Summit Lisboa",url:"https://websummit.com/",local:"Lisboa",price:{pt:"Preço dinâmico",en:"Dynamic pricing"},temas:["n"],areas:["CEO","Tech"]},
  {start:"2026-11-10",end:"2026-11-12",name:"Semana de Inovação ENAP/TCU",url:"https://semanadeinovacao.enap.gov.br/",local:"ENAP, Brasília",price:{pt:"Gratuito",en:"Free"},temas:["n","i"],areas:["Operações","CEO"]},
+ {start:"2026-11-11",end:"2026-11-14",name:"REC'n'Play 2026",url:"https://recnplay.pe/",local:"Recife Antigo, Recife",price:{pt:"Gratuito",en:"Free"},temas:["n"],areas:["Tech","Dados"]},
+ {start:"2026-11-16",end:"2026-11-16",name:"21º SIAC – Acrefi",url:"https://acrefi.org.br/eventos/",local:"Av. Paulista, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["p"],areas:["Asset","Administrativo/Financeiro"]},
+ {start:"2026-11-23",end:"2026-11-25",name:"25ª Conferência Nacional da Advocacia – OAB",url:"https://conferencia.oab.org.br/",local:"Centro de Convenções, Salvador",price:{pt:"De R$ 500 a R$ 750",en:"From R$ 500 to R$ 750"},temas:["l"],areas:["Asset"]},
+ {start:"2026-11-24",end:"2026-11-26",name:"Brasil Global Summit 2026",url:"https://brasilglobalsummit.com/",local:"Arena Mané Garrincha, Brasília",price:{pt:"Gratuito",en:"Free"},temas:["n"],areas:["CEO","Operações"]},
+ {start:"2026-11-25",end:"2026-11-27",name:"40º Congresso Brasileiro de Direito Administrativo (IBDA)",url:"https://congresso.ibda.com.br/",local:"Viasoft Experience, Curitiba",price:{pt:"De R$ 1.100 a R$ 2.500",en:"From R$ 1,100 to R$ 2,500"},temas:["l"],areas:["Asset","CEO"]},
  {start:"2026-11-26",end:"2026-11-27",name:"CASE26 – ABStartups",url:"https://case.abstartups.com.br/",local:"FEA-USP, SP",price:{pt:"Gratuito",en:"Free"},temas:["n"],areas:["Revenue","Tech"]},
  {start:"2027-03-15",end:"2027-03-21",name:"SXSW 2027",url:"https://sxsw.com/",local:"Austin (EUA / USA)",price:{pt:"Early bird até 29/10",en:"Early bird until Oct 29"},temas:["n"],areas:["CEO","Revenue"],deadline:"2026-10-29"}
 ];
@@ -277,7 +284,7 @@ const I18N={
  pt:{title:"Agenda de eventos",lede:"Os eventos que a Aurea selecionou e que ainda dá tempo de confirmar presença: acontecem a partir da próxima semana e têm inscrição aberta. Estão em ordem de data, com a sugestão de quais áreas enviar.",
   updated:"Atualizado em",crit1:"Critério: evento a partir de",crit2:"e inscrição disponível · eventos mais próximos com inscrição aberta seguem em \"Também dá tempo\" até o dia do evento",
   eyDl:"Decidir primeiro",hDl:"Prazos de inscrição que estão chegando",pDl:"Em vermelho: faltam 7 dias ou menos",
-  eyEv:"Lista principal",hEv:"Eventos selecionados",eyOt:"Para avaliar",hOt:"Também dá tempo, fora da lista principal",pOt:"Outros eventos relevantes e selecionados a menos de 7 dias, com inscrição ainda aberta",
+  eyEv:"Lista principal",hEv:"Eventos selecionados",eyOt:"Para avaliar",hOt:"Outros eventos",pOt:"Eventos relevantes fora da lista principal, ainda em avaliação",
   thDate:"Data",thEvent:"Evento",thPlace:"Local",thReg:"Inscrição",thTheme:"Tema",thAreas:"Áreas sugeridas",
   eySo:"No radar",hSo:"Selecionados sem inscrição aberta ainda",pSo:"Entram na lista principal quando a data for anunciada",
   foot1:"Sugestões de participação por área, considerando lideranças e nível sênior. Valores referem-se ao lote vigente e podem mudar. Confira sempre no link oficial.",
@@ -294,7 +301,7 @@ const I18N={
  en:{title:"Events calendar",lede:"Events selected by Aurea that there is still time to attend: they take place from next week onward and registration is open. Listed by date, with the suggested teams to send.",
   updated:"Updated on",crit1:"Criteria: events from",crit2:"with registration available · closer events with open registration stay under \"Also still in time\" until the event day",
   eyDl:"Decide first",hDl:"Upcoming registration deadlines",pDl:"In red: 7 days or less left",
-  eyEv:"Main list",hEv:"Selected events",eyOt:"To evaluate",hOt:"Also still in time, outside the main list",pOt:"Other relevant events, plus selected events less than 7 days away, with registration still open",
+  eyEv:"Main list",hEv:"Selected events",eyOt:"To evaluate",hOt:"Other events",pOt:"Relevant events outside the main list, still under evaluation",
   thDate:"Date",thEvent:"Event",thPlace:"Location",thReg:"Registration",thTheme:"Theme",thAreas:"Suggested teams",
   eySo:"On the radar",hSo:"Selected events without open registration yet",pSo:"They join the main list once dates are announced",
   foot1:"Participation suggested by team, considering leadership and senior level. Prices refer to the current ticket tier and may change. Always check the official link.",
