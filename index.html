@@ -184,7 +184,7 @@ footer{font-size:13px;color:var(--ink-2);border-top:1px solid var(--line);paddin
 <script>
 /* ===== DADOS (atualizados pelo monitoramento semanal) =====
    status opcional por evento: {go:true, who:"Nome"} = alguém vai · {go:false} = não vai ninguém */
-const UPDATED="2026-10-15";
+const UPDATED="2026-11-03";
 const EVENTS=[
  {name:"LAVCA Week 2026",org:"LAVCA",start:"2026-10-19",end:"2026-10-21",
   local:{pt:"Nova York (EUA)",en:"New York (USA)"},
@@ -199,7 +199,7 @@ const EVENTS=[
   desc:{pt:"Encontro do Instituto Brasileiro da Insolvência sobre gestão de risco, recuperação de ativos e impactos regulatórios no mercado de insolvência.",en:"Brazilian Insolvency Institute meeting on risk management, asset recovery and regulatory impacts on the insolvency market."},
   publico:{pt:"Advogados de insolvência, administradores judiciais, gestores de special situations e autoridades.",en:"Insolvency lawyers, court-appointed administrators, special situations managers and public authorities."},
   deadline:{date:"2026-10-21",closes:true,label:{pt:"Inscrições até 21/10",en:"Registration until Oct 21"}},
-  url:"https://app.higestor.com.br/inscricao/16758/3-ativos-financial-markets-and-insolvency",site:"https://ibajud.org/eventos/3o-ativos-financial-markets-and-insolvency/",
+  status:{go:true, who:"Rodolfo Arbex"},url:"https://app.higestor.com.br/inscricao/16758/3-ativos-financial-markets-and-insolvency",site:"https://ibajud.org/eventos/3o-ativos-financial-markets-and-insolvency/",
   note:{pt:"É o evento com perfil mais próximo do Congresso de Special Situations, que três pessoas da Aurea frequentaram em agosto.",en:"Closest in profile to the Special Situations Congress, which three people from Aurea attended in August."}},
  {name:"Fenalaw 2026",org:"Fenalaw · Análise Editorial",start:"2026-10-27",end:"2026-10-29",
   local:{pt:"Transamerica Expo Center · São Paulo",en:"Transamerica Expo Center · São Paulo"},
@@ -225,10 +225,10 @@ const EVENTS=[
   note:{pt:"Acontece nos mesmos dias do AI Summit Money.",en:"Same dates as AI Summit Money."}},
  {name:"CMS Financial Innovation 2026",org:"CMS People",start:"2026-11-18",end:"2026-11-18",
   local:{pt:"ARCA, Vila Leopoldina · São Paulo",en:"ARCA, Vila Leopoldina · São Paulo"},
-  price:{pt:"R$ 1.790 (lote 3) · depois R$ 1.990",en:"R$ 1,790 (tier 3) · then R$ 1,990"},temas:["f","i"],areas:["Revenue","Tech"],
+  price:{pt:"R$ 1.990 (Full) · desconto para associados ANBIMA",en:"R$ 1,990 (Full) · discount for ANBIMA members"},temas:["f","i"],areas:["Revenue","Tech"],
   desc:{pt:"Inovação no mercado financeiro. Tema de 2026: agentes de IA e orquestração em bancos e fintechs.",en:"Innovation in financial services. 2026 theme: AI agents and orchestration in banks and fintechs."},
   publico:{pt:"Bancos, fintechs e empresas de tecnologia financeira (cerca de 2.500 pessoas).",en:"Banks, fintechs and financial technology companies (about 2,500 people)."},
-  deadline:{date:"2026-10-31",label:{pt:"Lote 3 até 31/10",en:"Tier 3 until Oct 31"}},
+  deadline:{date:"2026-11-18",closes:true,label:{pt:"Vendas até 18/11",en:"Sales until Nov 18"}},
   url:"https://www.cmspeople.com.br/fi",site:"https://www.cmspeople.com.br/fi"},
  {name:"25ª Conferência Nacional da Advocacia",org:"OAB · Conselho Federal",start:"2026-11-23",end:"2026-11-25",
   local:{pt:"Centro de Convenções · Salvador",en:"Convention Center · Salvador"},
@@ -260,22 +260,25 @@ const EVENTS=[
   note:{pt:"É o evento principal para a tese de legal fintech.",en:"The key event for the legal fintech thesis."}}
 ];
 const OTHERS=[
- {start:"2026-10-29",end:"2026-10-29",name:"Score Summit 2026",url:"https://www.scoresummit.com.br/",local:"Teatro Renaissance, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["f"],areas:["Dados","Asset"]},
- {start:"2026-11-02",end:"2026-11-02",name:"REACT Brasil (special situations)",url:"https://reactbrasil.com.br/",local:"Tivoli Mofarrej, SP",price:{pt:"Por aplicação",en:"By application"},temas:["p"],areas:["Asset","CEO"]},
  {start:"2026-11-03",end:"2026-11-04",name:"18º Congresso TMA Brasil",url:"https://18-congresso.tmabrasil.org/",local:"Grand Hyatt, SP",price:{pt:"Sob consulta",en:"On request"},temas:["p"],areas:["Asset","CEO"]},
- {start:"2026-11-04",end:"2026-11-05",name:"HSM+ 2026",url:"https://hsmmais.com.br/",local:"Distrito Anhembi, SP",price:{pt:"R$ 7.900",en:"R$ 7,900"},temas:["n"],areas:["CEO","Operações"]},
+ {start:"2026-11-04",end:"2026-11-05",name:"HSM+ 2026",url:"https://hsmmais.com.br/",local:"Distrito Anhembi, SP",price:{pt:"R$ 7.900 (lote 3, até 03/11)",en:"R$ 7,900 (tier 3, until Nov 3)"},temas:["n"],areas:["CEO","Operações"],deadline:"2026-11-03"},
  {start:"2026-11-09",end:"2026-11-12",name:"52º Congresso Nacional dos Procuradores dos Estados (ANAPE)",url:"https://anape.org.br/eventos/congressos/cnpe-26",local:"Hotel Pestana, Curitiba",price:{pt:"De R$ 2.100 a R$ 2.880",en:"From R$ 2,100 to R$ 2,880"},temas:["l"],areas:["Asset","CEO"]},
  {start:"2026-11-09",end:"2026-11-12",name:"Web Summit Lisboa",url:"https://websummit.com/",local:"Lisboa",price:{pt:"Preço dinâmico",en:"Dynamic pricing"},temas:["n"],areas:["CEO","Tech"]},
  {start:"2026-11-10",end:"2026-11-12",name:"Semana de Inovação ENAP/TCU",url:"https://semanadeinovacao.enap.gov.br/",local:"ENAP, Brasília",price:{pt:"Gratuito",en:"Free"},temas:["n","i"],areas:["Operações","CEO"]},
  {start:"2026-11-11",end:"2026-11-14",name:"REC'n'Play 2026",url:"https://recnplay.pe/",local:"Recife Antigo, Recife",price:{pt:"Gratuito",en:"Free"},temas:["n"],areas:["Tech","Dados"]},
+ {start:"2026-11-11",end:"2026-11-11",name:"ANBIMA Global Insights 2026",url:"https://www.anbima.com.br/pt_br/noticias/inscricoes-abertas-para-o-anbima-global-insights-2026.htm",local:"Um Rooftop, SP",price:{pt:"Gratuito",en:"Free"},temas:["f"],areas:["Asset","Administrativo/Financeiro"]},
+ {start:"2026-11-16",end:"2026-11-17",name:"EmTech Brasil 2026 (MIT Technology Review)",url:"https://mittechreview.com.br/eventos/",local:"IBT – Instituto Brasileiro de Teatro, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["i","n"],areas:["CEO","Tech"]},
  {start:"2026-11-16",end:"2026-11-16",name:"21º SIAC – Acrefi",url:"https://acrefi.org.br/eventos/",local:"Av. Paulista, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["p"],areas:["Asset","Administrativo/Financeiro"]},
+ {start:"2026-11-20",end:"2026-11-21",name:"Blockchain Conference Brasil 2026",url:"https://bpmoney.com.br/?p=413723",local:"São Paulo Expo, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["f"],areas:["Revenue","Tech"]},
+ {start:"2026-11-24",end:"2026-11-24",name:"Open Finance Awards 2026",url:"https://openfinanceawards.com.br/",local:"Bisutti Contemporâneo, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["f"],areas:["Revenue","Tech"]},
  {start:"2026-11-24",end:"2026-11-26",name:"Brasil Global Summit 2026",url:"https://brasilglobalsummit.com/",local:"Arena Mané Garrincha, Brasília",price:{pt:"Gratuito",en:"Free"},temas:["n"],areas:["CEO","Operações"]},
  {start:"2026-11-26",end:"2026-11-27",name:"CASE26 – ABStartups",url:"https://case.abstartups.com.br/",local:"FEA-USP, SP",price:{pt:"Gratuito",en:"Free"},temas:["n"],areas:["Revenue","Tech"]},
- {start:"2027-03-15",end:"2027-03-21",name:"SXSW 2027",url:"https://sxsw.com/",local:"Austin (EUA / USA)",price:{pt:"Early bird até 29/10",en:"Early bird until Oct 29"},temas:["n"],areas:["CEO","Revenue"],deadline:"2026-10-29"},
+ {start:"2027-03-15",end:"2027-03-21",name:"SXSW 2027",url:"https://sxsw.com/",local:"Austin (EUA / USA)",price:{pt:"Early bird encerrado em 29/10",en:"Early bird ended Oct 29"},temas:["n"],areas:["CEO","Revenue"]},
  {start:"2027-05-04",end:"2027-05-07",name:"São Paulo Innovation Week 2027",url:"https://saopauloinnovationweek.com.br/",local:"Arena Pacaembu e FAAP, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["n"],areas:["Revenue","Tech"]},
  {start:"2027-05-05",end:"2027-05-07",name:"Gramado Summit 2027",url:"https://www.gramadosummit.com/",local:"Serra Park, Gramado",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["n"],areas:["Revenue","Operações"]},
  {start:"2027-06-02",end:"2027-06-03",name:"Gartner Data & Analytics Summit SP",url:"https://www.gartner.com/en/conferences/la/data-analytics-brazil",local:"Distrito Anhembi, SP",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["i"],areas:["Dados","Tech"]},
- {start:"2027-06-14",end:"2027-06-17",name:"Web Summit Rio 2027",url:"https://rio.websummit.com/",local:"Riocentro, Rio de Janeiro",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["n","f"],areas:["CEO","Revenue"]}
+ {start:"2027-06-14",end:"2027-06-17",name:"Web Summit Rio 2027",url:"https://rio.websummit.com/",local:"Riocentro, Rio de Janeiro",price:{pt:"Valor não divulgado",en:"Price not disclosed"},temas:["n","f"],areas:["CEO","Revenue"]},
+ {start:"2027-10-14",end:"2027-10-15",name:"XXI Congresso Brasileiro de Direito Previdenciário (IBDP)",url:"https://www.ibdp.org.br/eventos/xxi-congresso-brasileiro-de-direito-previdenciario/",local:"Windsor Oceânico, Rio de Janeiro",price:{pt:"De R$ 1.099 a R$ 2.399",en:"From R$ 1,099 to R$ 2,399"},temas:["l"],areas:["Asset","CEO"]}
 ];
 const SOON=[
  {name:"Congresso de Special Situations e Litigation Finance",when:{pt:"Provável ago/2027",en:"Expected Aug 2027"},base:true,info:{pt:"Evento-base: três pessoas da Aurea foram em 2026.",en:"Benchmark event: three people from Aurea attended in 2026."},temas:["p"]},
